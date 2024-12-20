@@ -1,4 +1,4 @@
-//FONCTIONS DE MANIPULATION DE CHAÎNES :
+/* FONCTIONS DE MANIPULATION DE CHAÎNES : */
 
 //Inverser une chaîne : écrivez une fonction qui inverse une chaîne donnée.
 // Demande à l'utilisateur d'entrer une chaîne de caractères
@@ -46,7 +46,7 @@ function capitalizeWords(sentence) {
 console.log(capitalizeWords(sentence));
 
 
-//FONCTIONS DE TABLEAU :
+/* FONCTIONS DE TABLEAU : */
 
 //Rechercher le maximum et le minimum : écrivez des fonctions pour trouver les valeurs maximales et minimales dans un tableau de nombres.
 
@@ -95,43 +95,72 @@ function filtrerElements(itemArr, condition) {
 }
 // Filtrer les éléments les éléments négatifs
 const elementsPositifs = filtrerElements(input, (valeur) => valeur > 0);
-console.log("Éléments positifs :", elementsPositifs); 
+console.log("Éléments positifs :", elementsPositifs);
 
 // Filtrer les éléments négatifs
 const elementsNegatifs = filtrerElements(input, (valeur) => valeur < 0);
-console.log("Éléments négatifs :", elementsNegatifs); 
+console.log("Éléments négatifs :", elementsNegatifs);
 
+/*FONCTIONS MATHÉMATIQUES : */
 
+//Factorielle : Écrire une fonction pour calculer la factorielle d'un nombre donné.
 
+// Demande à l'utilisateur de saisir un nombre positif et convertit l'entrée en un entier
+let inputNbre = parseInt(prompt("Saisissez un nombre positif :"));
 
+// Fonction pour calculer la factorielle d'un nombre donné
+function factorial(nbre) {
+    // Vérifie si le nombre est négatif
+    if (nbre < 0) {
+        return "La factorielle n'est pas définie pour les nombres négatifs.";
+    }
 
+    // Retourne 1 si le nombre est 0 ou 1 (par définition mathématique de la factorielle)
+    if (nbre === 0 || nbre === 1) {
+        return 1;
+    }
 
+    // Initialise la variable qui contiendra le résultat de la factorielle
+    let result = 1;
 
+    // Boucle pour multiplier les nombres de 2 à nbre
+    for (let i = 2; i <= nbre; i++) {
+        result *= i; // Multiplie le résultat actuel par l'indice courant
+    }
 
+    // Retourne le résultat final
+    return result;
+}
+// Affiche le résultat de la factorielle calculée dans la console
+console.log(`${inputNbre}! = `, factorial(inputNbre));
 
+//Vérification des nombres premiers : Créer une fonction pour vérifier si un nombre est premier ou non.
 
+function nbrePremier(nbre) {
+    if (nbre <= 1) {
+        return false; // Les nombres <= 1 ne sont pas premiers
+    }
+    if (nbre <= 3) {
+        return true; // 2 et 3 sont des nombres premiers
+    }
+    if (nbre % 2 === 0 || nbre % 3 === 0) {
+        return false; // Exclure les multiples de 2 et 3
+    }
+    for (let i = 5; i * i <= nbre; i += 6) {
+        if (nbre % i === 0 || nbre % (i + 2) === 0) {
+            return false;
+        }
+    }
+    return true; // Si aucune division n'a été trouvée, le nombre est premier
+}
+console.log(`${inputNbre} est-il un nombre premier ?`, nbrePremier(inputNbre));
 
+//Séquence de Fibonacci : Mettre en œuvre une fonction pour générer la suite de Fibonacci jusqu'à un nombre donné de termes.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//FONCTIONS MATHÉMATIQUES :
+// Fonction pour calculer le n-ième nombre de la suite de Fibonacci
+function suitFibonacci(nbr) {
+    //Si le nombre est inférieur ou égal à 1, retourne ce nombre
+    return nbr <= 1 ? nbr : suitFibonacci(nbr - 1) + suitFibonacci(nbr - 2);
+}
+// Affichage du résultat de la fonction pour un nombre donné (inputNbre)
+console.log(suitFibonacci(inputNbre));
