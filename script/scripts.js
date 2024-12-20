@@ -163,4 +163,4 @@ function suitFibonacci(nbr) {
     return nbr <= 1 ? nbr : suitFibonacci(nbr - 1) + suitFibonacci(nbr - 2);
 }
 // Affichage du résultat de la fonction pour un nombre donné (inputNbre)
-console.log(suitFibonacci(inputNbre));
+console.log(`La suite de Fibonacci de ${inputNbre} est :`,suitFibonacci(inputNbre));
